@@ -6,7 +6,7 @@ FROM $BASE_IMAGE
 RUN set -eux; \
     echo "deb http://ftp.de.debian.org/debian bookworm main" >> /etc/apt/sources.list; \
     apt-get update; \
-    apt-get install -y --no-install-recommends chromium chromium-common chromium-sandbox openbox; \
+    apt-get install -y --no-install-recommends chromium chromium-common chromium-sandbox openbox socat; \
     #
     # install widevine module (only for amd64)
     CHROMIUM_DIR="/usr/lib/chromium"; \
