@@ -69,7 +69,7 @@ while [[ "$#" -gt 0 ]]; do
     --push) PUSH=1 ;;
     --help|-h) help; exit 0 ;;
     -*) log "Unknown parameter passed: $1"; help; exit 1 ;;
-    *) 
+    *)
       if [ -z "$FULL_IMAGE" ]; then
         FULL_IMAGE="$1"
 
@@ -81,7 +81,7 @@ while [[ "$#" -gt 0 ]]; do
         #   FLAVOR=nvidia
         #   APPLICATION=firefox
         #   TAG=latest
-        
+
         # remove the tag from the image name
         if [[ "$FULL_IMAGE" == *":"* ]]; then
           # removes everything before the last :
@@ -192,7 +192,7 @@ function build_image() {
     if [ ! -z "$NO_CACHE" ]; then
       CMD+="--no-cache "
     fi
-  
+
     # buildx build command
     docker buildx build \
       --platform $PLATFORM \
@@ -242,7 +242,7 @@ if [ -z "$TAG" ]; then
       TAGS=("$MAJOR.$MINOR.$PATCH" "$MAJOR.$MINOR" "$MAJOR")
     #else
     #  # if no version tag is found, use the latest commit hash
-    #  GIT_VER=$(git rev-parse HEAD 
+    #  GIT_VER=$(git rev-parse HEAD
     #  TAGS=("sha-$GIT_VER")
     fi
   fi
