@@ -19,7 +19,6 @@
   "BookmarkBarEnabled": false,
   "PasswordManagerEnabled": false,
   "BrowserLabsEnabled": false,
-  "CommandLineFlagSecurityWarningsEnabled": false,
   "URLAllowlist": [
     "file:///home/neko/Downloads"
   ],
@@ -28,14 +27,9 @@
       "chrome://policy"
   ],
   "ExtensionInstallForcelist": [
-      "ddkjiahejlhfcafbddmgiahcphecmpfh;https://clients2.google.com/service/update2/crx",
-      "mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx"
   ],
   "ExtensionInstallAllowlist": [
-      "ddkjiahejlhfcafbddmgiahcphecmpfh",
-      "mnjggcdmjocbbbhaepdhchncahnbgone"
-  ],
-  "ExtensionInstallBlocklist": [
       "*"
-  ]
+  ],
+  "ExtensionInstallBlocklist": []
 }

@@ -20,17 +20,19 @@ services:
     cap_add:
       - SYS_ADMIN
     ports:
-      - "8080:8080"
-      - "9223:9223"
-      - "56000-56100:56000-56100/udp"
+      - "8080:8080" # UI
+      - "19222:19222" # CDP
+      - "56000-56100:56000-56100/udp" # WebRTC
+      - "12306:12306" # MCP: chrome-mcp
+      - "8931:8931" # MCP: playwright-mcp
     volumes:
       - ".docker/chrome:/home/neko/.config/chromium"
     environment:
       NEKO_DESKTOP_SCREEN: 1920x1080@30
-      NEKO_MEMBER_MULTIUSER_USER_PASSWORD: neko
-      NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD: admin
       NEKO_WEBRTC_EPR: 56000-56100
       NEKO_WEBRTC_NAT1TO1: 127.0.0.1
       NEKO_WEBRTC_ICELITE: 1
       NEKO_DESKTOP_UNMINIMIZE: true
       NEKO_DESKTOP_UPLOAD_DROP: true
+      NEKO_MEMBER_PROVIDER: "noauth"
+      NEKO_CHROME_FLAGS: "--load-extension=/srv/mcp/chrome-mcp/extension,/srv/mcp/playwright-mcp/extension"
