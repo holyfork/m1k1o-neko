@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "chrome-mcp": {
+      "url": "http://0.0.0.0:12306/mcp"
+    },
+    "playwright-remote": {
+      "url": "http://0.0.0.0:8931/mcp"
+    },
+    "playwright-local": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--cdp-endpoint",
+        "http://0.0.0.0:19222"
+      ]
+    }
+  }
+}
